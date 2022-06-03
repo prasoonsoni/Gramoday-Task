@@ -107,6 +107,112 @@ MONGO_URI = mongodb+srv://prasoon:prasoon123@data.a8czv.mongodb.net/data
     "price": 15
 }
 ```
+### API Tests
+## ```POST /reports```
+#### 1. When Data sent in Body is correct. marketID and cmdtyID is already present same reportID will be assigned to the report.
 
+Body
+```json
+{
+    "reportDetails": {
+        "userID": "user-1",
+        "marketID": "market-1",
+        "marketName": "Vashi Navi Mumbai",
+        "cmdtyID": "cmdty-1",
+        "cmdtyName": "Potato",
+        "priceUnit": "Pack",
+        "convFctr": 50,
+        "price": 700
+    }
+}
+```
+Response
+```json
+{
+    "status": "success",
+    "reportID": "5ec6a570-e348-11ec-887f-317043d1bb44"
+}
+```
+#### 2. When Data sent in Body is correct. marketID and cmdtyID is not present new reportID will be assigned to the report.
 
+Body
+```json
+{
+    "reportDetails": {
+        "userID": "user-1",
+        "marketID": "market-2",
+        "marketName": "Vashi Navi Mumbai",
+        "cmdtyID": "cmdty-2",
+        "cmdtyName": "Potato",
+        "priceUnit": "Pack",
+        "convFctr": 50,
+        "price": 700
+    }
+}
+```
+Response
+```json
+{
+    "status": "success",
+    "reportID": "5e82c830-e354-11ec-8da8-b9d83f7b60b6"
+}
+```
+#### 3. When there is an error in request
 
+Body
+```json
+{
+    "repotDetails": {
+        "userID": "user-1",
+        "marketID": "market-1",
+        "marketName": "Vashi Navi Mumbai",
+        "cmdtyID": "cmdty-1",
+        "cmdtyName": "Potato",
+        "priceUnit": "Pack",
+        "convFctr": 50,
+        "price": 700
+    }
+}
+```
+Response
+```json
+{
+    "status": "error",
+    "message": "Some internal server error occured."
+}
+```
+## ```GET /reports?reportID=yourReportID```
+#### 1. When report with report ID exists
+URL
+```
+http://localhost:3000/reports?reportID=5ec6a570-e348-11ec-887f-317043d1bb44
+```
+Response
+```json
+{
+    "_id": "5ec6a570-e348-11ec-887f-317043d1bb44",
+    "cmdtyName": "Potato",
+    "cmdtyID": "cmdty-1",
+    "marketID": "market-1",
+    "marketName": "Vashi Navi Mumbai",
+    "users": [
+        "user-1",
+        "user-2"
+    ],
+    "timestamp": 1654271479028,
+    "priceUnit": "Kg",
+    "price": 15
+}
+```
+#### 2. When report does not exist with reportID
+URL
+```
+http://localhost:3000/reports?reportID=5ec6a570-e348-11ec-887f-317043d1bb45
+```
+Response
+```json
+{
+    "status": "error",
+    "message": "No reports found."
+}
+```
