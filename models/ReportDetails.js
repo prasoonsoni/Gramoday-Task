@@ -2,8 +2,8 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const ReportDetails = new Schema({
-    users:{
-        type:[String],
+    userID:{
+        type:String,
         required:true
     },
     marketID:{
@@ -30,12 +30,21 @@ const ReportDetails = new Schema({
         type:String,
         default:"Kg"
     },
+    convFctr:{
+        type:Number,
+        required:true
+    },
     price:{
         type:Number,
         required:true
     },
+    reportID:{
+        type:String,
+        required:true
+    },
     timestamp:{
-        default:Date.now()
+        default:Date.now,
+        type:Date
     }
 })
 

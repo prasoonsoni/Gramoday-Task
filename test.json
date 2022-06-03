@@ -1,0 +1,12 @@
+{
+    "reportDetails": {
+        "userID": "user-2",
+        "marketID": "market-1",
+        "marketName": "Vashi Navi Mumbai",
+        "cmdtyID": "cmdty-1",
+        "cmdtyName": "Potato",
+        "priceUnit": "Quintal",
+        "convFctr": 100,
+        "price": 1600
+    }
+}

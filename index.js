@@ -13,6 +13,9 @@ app.get('/', (req, res) => {
         '<h3><a href="https://github.com/prasoonsoni/Gramoday-Task" target="_blank">Visit Repository</a></h3></center>')
 })
 
+app.use('/reports', require('./routes/createreport'))
+app.use('/reports', require('./routes/getreport'))
+
 app.listen(port, () => {
     console.log(`Gramoday Task listening on http://localhost:${port}`)
 })
