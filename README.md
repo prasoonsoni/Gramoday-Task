@@ -107,7 +107,7 @@ MONGO_URI = mongodb+srv://prasoon:prasoon123@data.a8czv.mongodb.net/data
     "price": 15
 }
 ```
-### API Tests
+# API Tests
 ## ```POST /reports```
 #### 1. When Data sent in Body is correct. marketID and cmdtyID is already present same reportID will be assigned to the report.
 
