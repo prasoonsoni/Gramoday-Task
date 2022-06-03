@@ -1,5 +1,5 @@
 # Gramody Task 
-
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b1b986570c974552aadd?action=collection%2Fimport)
 ## <img src="https://cdn.iconscout.com/icon/free/png-512/laptop-user-1-1179329.png" width="32" height="32"> Getting Started
 To get a local copy up and running follow these simple steps.
 ### Prerequisites
